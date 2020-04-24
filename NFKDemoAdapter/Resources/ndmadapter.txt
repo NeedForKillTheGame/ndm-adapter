@@ -1,0 +1,50 @@
+// display size (init value with aspect ratio)
+r_mode 1280 720
+zoomwindow
+
+// game speed (0-40), default 20
+speeddemo 25
+
+// start play music from a playlist basenfk/music/mp3list.dat
+mp3volume 20
+mp3play
+
+// decrease game volume
+volume 15
+
+// show nicknames
+autoshownick 0
+shownick 1
+
+showhp 1
+showhp_colored 1
+showhp_x 30
+showhp_y 75
+
+drawtime 1
+allowmapschangebg 1
+barflash 1
+barposition 427
+showmapinfo 1
+shownickatsb 1
+ch_showfollowinglabel 0
+
+// do not draw unused bars
+cf_weapon 0
+cf_weapon_selected 0
+cg_lagometer 0
+cg_drawping 0
+
+ch_hudvisible 0
+ch_showfollowinglabel 0`
+ch_qwscoreboard 1
+messagetime 100
+cameratype 1
+spectator 1
+r_massacre 1
+
+// binds
+bind n nextplayer
+bind tab scoreboard
+// hook for esc in ndmadapter
+bind esc quit

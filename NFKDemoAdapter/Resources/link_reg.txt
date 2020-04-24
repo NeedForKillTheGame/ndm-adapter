@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\Software\Classes\nfkdemo]
+"URL Protocol"=""
+
+[HKEY_CURRENT_USER\Software\Classes\nfkdemo\shell\open\command]
+@="\"{PROGRAM_EXE_PATH}\" \"%1\""
+

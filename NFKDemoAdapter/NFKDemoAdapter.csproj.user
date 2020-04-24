@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartArguments>d:\Games\NFK\basenfk\demos\nublo_vs_rush_on_tourney4_dm_18.05.2019_21-36-42.ndm</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>d:\Games\NFK\basenfk\demos\[d.o.]_&amp;_enforcer_&amp;_x[d32]_mirage_vs_harpywar_&amp;_ra%27lrke_&amp;_2d_y3_on_ctf2_ctf_25.05.2019_18-45-42.ndm</StartArguments>
+  </PropertyGroup>
+</Project>
