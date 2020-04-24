@@ -54,6 +54,10 @@ namespace NFKDemoAdapter
                 if (string.IsNullOrEmpty(_gameExePath) || !File.Exists(_gameExePath))
                 {
                     Common.ShowError("Error", "Incorrect path to NFK\n" + _gameExePath);
+                    // start the program without parameters
+                    Process.Start(ProgramExePath);
+
+                    // exit current instance
                     Environment.Exit(1);
                 }
                 return _gameExePath;

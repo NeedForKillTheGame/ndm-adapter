@@ -118,15 +118,17 @@ namespace NFKDemoAdapter
                 ? Properties.Settings.Default.GameLoadTime
                 : NFKHelper.GAME_LOAD_TIME_DEFAULT;
             int interval = (int)(gameLoadTime - NFKHelper.INTRO_TIME) / (progressBar1.Maximum - progressBar1.Value);
-
-            // run until prograss bar is filled for 100%
-            for (; progressBar1.Value < progressBar1.Maximum; progressBar1.Value++)
+            if (interval >= 0)
             {
-                // if abort button clicked
-                if (String.IsNullOrEmpty(NFKHelper.DemoFile))
-                    break;
-                Thread.Sleep(interval);
-                Application.DoEvents();
+                // run until prograss bar is filled for 100%
+                for (; progressBar1.Value < progressBar1.Maximum; progressBar1.Value++)
+                {
+                    // if abort button clicked
+                    if (String.IsNullOrEmpty(NFKHelper.DemoFile))
+                        break;
+                    Thread.Sleep(interval);
+                    Application.DoEvents();
+                }
             }
 
             userMode = false;

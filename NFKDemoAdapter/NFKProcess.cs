@@ -56,7 +56,8 @@ namespace NFKDemoAdapter
                 Width = 0
             };
             StubForm.Shown += (object _sender, EventArgs _e) => {
-                StubForm.Hide();
+                if (StubForm != null)
+                    StubForm.Hide();
             };
 
             // close nfk by escape

@@ -38,9 +38,9 @@ namespace NFKDemoAdapter.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public float GameLoadTime {
+        public int GameLoadTime {
             get {
-                return ((float)(this["GameLoadTime"]));
+                return ((int)(this["GameLoadTime"]));
             }
             set {
                 this["GameLoadTime"] = value;

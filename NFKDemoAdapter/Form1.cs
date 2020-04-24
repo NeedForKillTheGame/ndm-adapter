@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,6 +46,10 @@ namespace NFKDemoAdapter
         private void Form1_Load(object sender, EventArgs e)
         {
             wr = new Regedit();
+
+            // set version
+            var ver = Assembly.GetExecutingAssembly().GetName().Version;
+            this.Text = this.Text + " v" + ver.Major + "." + ver.Minor;
 
             chkLinkHandler.Enabled = chkFileHandler.Enabled = false;
             linkConfig.Visible = false;
