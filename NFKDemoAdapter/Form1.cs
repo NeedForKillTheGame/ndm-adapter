@@ -49,7 +49,7 @@ namespace NFKDemoAdapter
 
             // set version
             var ver = Assembly.GetExecutingAssembly().GetName().Version;
-            this.Text = this.Text + " v" + ver.Major + "." + ver.Minor;
+            this.Text = this.Text + " v" + ver.Major;
 
             chkLinkHandler.Enabled = chkFileHandler.Enabled = false;
             linkConfig.Visible = false;

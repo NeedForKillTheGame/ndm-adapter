@@ -185,6 +185,7 @@ namespace NFKDemoAdapter
                     contents = contents.Replace("r_mode 1280 720", string.Format("r_mode {0} {1}", new_width, new_height));
                     File.WriteAllText(filePath, contents);
 
+                    setSoftwareSound();
                     createMp3list();
                 }
                 catch (Exception e)
@@ -196,6 +197,21 @@ namespace NFKDemoAdapter
             return filePath;
         }
 
+        /// <summary>
+        /// Replace hardware(2) to sound software(1) if set
+        /// Hardware sound disappears on late Windows versions. Software works better.
+        /// </summary>
+        private static void setSoftwareSound()
+        {
+            var nfkConfigIni = Path.Combine(GetBasenfkPath(), "nfksetup.ini");
+            var contents = File.ReadAllText(nfkConfigIni);
+            contents = contents.Replace("soundtype=1", "soundtype=2");
+            File.WriteAllText(nfkConfigIni, contents);
+        }
+
+        /// <summary>
+        /// Download and place wind.mpw into music directory to play via "mp3play" command
+        /// </summary>
         private static void createMp3list()
         {
             var musicPath = Path.Combine(GetBasenfkPath(), "music");
@@ -240,8 +256,8 @@ namespace NFKDemoAdapter
                 ? (width > GAME_WIDTH ? GAME_WIDTH : width)
                 : (height > GAME_HEIGHT ? GAME_HEIGHT : height);
             new_height = width > height
-                ? (int)(new_width / screen_ratio)
-                : (int)(new_width * screen_ratio);
+                ? (int)Math.Ceiling(new_width / screen_ratio)
+                : (int)Math.Ceiling(new_width * screen_ratio);
         }
 
 
