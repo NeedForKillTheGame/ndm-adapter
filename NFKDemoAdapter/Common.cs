@@ -26,11 +26,11 @@ namespace NFKDemoAdapter
 
         public static void ShowError(string caption, string message)
         {
-            ShowMessage(message, caption, MessageBoxIcon.Error);
+            ShowMessage(caption, message, MessageBoxIcon.Error);
         }
         public static void ShowMessage(string caption, string message, MessageBoxIcon type = MessageBoxIcon.Information)
         {
-            MessageBox.Show(message, caption, MessageBoxButtons.OK, type);
+            MessageBox.Show(caption, message, MessageBoxButtons.OK, type);
         }
 
         public static string GetFilenameFromWebServer(string url)

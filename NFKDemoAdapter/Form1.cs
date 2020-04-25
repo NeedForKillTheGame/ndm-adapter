@@ -57,11 +57,16 @@ namespace NFKDemoAdapter
             linkConfig.Visible = false;
 
             // load settings
-            if (File.Exists(Properties.Settings.Default.GameExePath))
+            if (File.Exists(Properties.Settings.Default.GameExePath) && Directory.Exists(NFKHelper.GetBasenfkPath()))
             {
                 txtGamePath.Text = Properties.Settings.Default.GameExePath;
                 chkLinkHandler.Enabled = chkFileHandler.Enabled = true;
                 linkConfig.Visible = true;
+            }
+            else
+            {
+                // auto show file dialog if NFK.exe not exists
+                TxtGamePath_MouseClick(null, null);
             }
 
             userMode = false;

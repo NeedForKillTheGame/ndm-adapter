@@ -31,19 +31,11 @@ namespace NFKDemoAdapter
                 if (!String.IsNullOrEmpty(NFKHelper.DemoFile))
                 {
                     // show video intro after the download form
-                    if (np.Intro != null && !np.Intro.CloseFlag)
+                    if (np.Intro != null && !np.Intro.CloseFlag && np.GameRunning)
                         Application.Run(np.Intro);
                 }
-                if (np.StubForm != null && !np.StubForm.CloseFlag)
+                if (np.StubForm != null && !np.StubForm.CloseFlag && np.GameRunning)
                     Application.Run(np.StubForm);
-/*
-                while (np.GameRunning)
-                {
-                    //if (np.GetProcess() == null || np.GetProcess().HasExited)
-                    //    break;
-                    Thread.Sleep(1000);
-                }
-*/
             }
 
         }
