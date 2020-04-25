@@ -34,6 +34,7 @@
             this.chkLinkHandler = new System.Windows.Forms.CheckBox();
             this.chkFileHandler = new System.Windows.Forms.CheckBox();
             this.linkConfig = new System.Windows.Forms.LinkLabel();
+            this.lvlVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -89,6 +90,18 @@
             this.linkConfig.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.linkConfig.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkConfig_LinkClicked);
             // 
+            // lvlVersion
+            // 
+            this.lvlVersion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lvlVersion.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.lvlVersion.Location = new System.Drawing.Point(336, 109);
+            this.lvlVersion.Name = "lvlVersion";
+            this.lvlVersion.Size = new System.Drawing.Size(44, 18);
+            this.lvlVersion.TabIndex = 0;
+            this.lvlVersion.Text = "v0.1";
+            this.lvlVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lvlVersion.Click += new System.EventHandler(this.LvlVersion_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -98,6 +111,7 @@
             this.Controls.Add(this.chkFileHandler);
             this.Controls.Add(this.chkLinkHandler);
             this.Controls.Add(this.txtGamePath);
+            this.Controls.Add(this.lvlVersion);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -119,6 +133,7 @@
         private System.Windows.Forms.CheckBox chkLinkHandler;
         private System.Windows.Forms.CheckBox chkFileHandler;
         private System.Windows.Forms.LinkLabel linkConfig;
+        private System.Windows.Forms.Label lvlVersion;
     }
 }
 
