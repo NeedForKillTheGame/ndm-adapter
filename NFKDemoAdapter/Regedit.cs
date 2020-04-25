@@ -99,7 +99,7 @@ namespace NFKDemoAdapter
                     : Properties.Resources.file_reg;
                 regData = regData.Replace("{PROGRAM_EXE_PATH}", NFKHelper.ProgramExePath.Replace("\\", "\\\\"));
                 var tmpFilePath = Path.Combine(Path.GetTempPath(), tmpFileName);
-                File.WriteAllText(tmpFilePath, regData);
+                File.WriteAllText(tmpFilePath, regData, Encoding.Unicode);
 
                 // exec reg file as administrator
                 var p = Process.Start(new ProcessStartInfo()

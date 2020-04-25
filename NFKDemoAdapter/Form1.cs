@@ -36,7 +36,8 @@ namespace NFKDemoAdapter
 
                 linkConfig.Visible = true;
                 chkLinkHandler.Enabled = chkFileHandler.Enabled = true;
-                // set handlers by default
+                // recreate handlers and set enabled by deafult
+                chkLinkHandler.Checked = chkFileHandler.Checked = false;
                 chkLinkHandler.Checked = chkFileHandler.Checked = true;
             }
         }

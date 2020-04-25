@@ -21,6 +21,10 @@ showhp_colored 1
 showhp_x 30
 showhp_y 75
 
+// follow best players
+followpowerup
+followkiller
+
 drawtime 1
 allowmapschangebg 1
 barflash 1
