@@ -143,7 +143,7 @@ namespace NFKDemoAdapter
         {
             //demoFile = Path.GetFileNameWithoutExtension(demoFile);
             var configFile = Path.GetFileNameWithoutExtension(GAME_CONFIG);
-            return string.Format("+window +dontsavecfg +exec {0} +demo \"{1}\"", configFile, demoFile);
+            return string.Format("+gowindow +dontsavecfg +exec {0} +demo \"{1}\"", configFile, demoFile);
         }
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace NFKDemoAdapter
                     File.WriteAllText(filePath, contents);
 
                     setSoftwareSound();
-                    createMp3list();
+                    Task.Run(() => createMp3list());
                 }
                 catch (Exception e)
                 {
