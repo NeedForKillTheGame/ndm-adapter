@@ -122,7 +122,7 @@
     <value>..\Resources\file_reg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
   </data>
   <data name="intro" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nfkdemo.mp4;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\Resources\nfkdemo.wmv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="link_reg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\link_reg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>

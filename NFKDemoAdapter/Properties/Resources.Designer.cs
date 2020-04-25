@@ -61,7 +61,13 @@ namespace NFKDemoAdapter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
+        ///
+        ///[HKEY_CURRENT_USER\Software\Classes\ndmadapter\shell\open\command]
+        ///@=&quot;{PROGRAM_EXE_PATH} \&quot;%1\&quot;&quot;
+        ///
+        ///[HKEY_CURRENT_USER\Software\Classes\.ndm]
+        ///@=&quot;ndmadapter&quot;.
         /// </summary>
         internal static string file_reg {
             get {
@@ -82,15 +88,11 @@ namespace NFKDemoAdapter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
-        ///[HKEY_CLASSES_ROOT\nfkdemo]
+        ///[HKEY_CURRENT_USER\Software\Classes\nfkdemo]
         ///&quot;URL Protocol&quot;=&quot;&quot;
         ///
-        ///[HKEY_CLASSES_ROOT\nfkdemo\shell]
-        ///
-        ///[HKEY_CLASSES_ROOT\nfkdemo\shell\open]
-        ///
-        ///[HKEY_CLASSES_ROOT\nfkdemo\shell\open\command]
-        ///@=&quot;\&quot;{ADAPTER_EXE_PATH}\&quot; \&quot;%1\&quot;&quot;
+        ///[HKEY_CURRENT_USER\Software\Classes\nfkdemo\shell\open\command]
+        ///@=&quot;\&quot;{PROGRAM_EXE_PATH}\&quot; \&quot;%1\&quot;&quot;
         ///
         ///.
         /// </summary>
@@ -101,12 +103,19 @@ namespace NFKDemoAdapter.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to // change display size
+        ///   Looks up a localized string similar to // display size (init value with aspect ratio)
         ///r_mode 1280 720
         ///zoomwindow
         ///
-        ///// increase speed
-        ///speeddemo 60
+        ///// game speed (0-40), default 20
+        ///speeddemo 25
+        ///
+        ///// start play music from a playlist basenfk/music/mp3list.dat
+        ///mp3volume 20
+        ///mp3play
+        ///
+        ///// decrease game volume
+        ///volume 15
         ///
         ///// show nicknames
         ///autoshownick 0
@@ -126,17 +135,7 @@ namespace NFKDemoAdapter.Properties {
         ///ch_showfollowinglabel 0
         ///
         ///// do not draw unused bars
-        ///cf_weapon 0
-        ///cf_weapon_selected 0
-        ///cg_lagometer 0
-        ///cg_drawping 0
-        ///
-        ///ch_hudvisible 0
-        ///ch_showfollowinglabel 0`
-        ///ch_qwscoreboard 1
-        ///messagetime 100
-        ///cameratype 1
-        ///spectator [rest of string was truncated]&quot;;.
+        ///cf_w [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ndmadapter {
             get {

@@ -48,8 +48,9 @@ namespace NFKDemoAdapter
             wr = new Regedit();
 
             // set version
-            var ver = Assembly.GetExecutingAssembly().GetName().Version;
-            this.Text = this.Text + " v" + ver.Major;
+            lvlVersion.Text = string.Format("v{0}", Common.ProgramVersion);
+            // check new version in separate thread
+            Task.Factory.StartNew(Common.CheckNewVersion);
 
             chkLinkHandler.Enabled = chkFileHandler.Enabled = false;
             linkConfig.Visible = false;
@@ -135,6 +136,10 @@ namespace NFKDemoAdapter
 
         }
 
+        private void LvlVersion_Click(object sender, EventArgs e)
+        {
+            Common.OpenURL(Common.ProgramHomePage);
+        }
 
         /*
         private void LnkDemoExample_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

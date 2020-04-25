@@ -121,9 +121,6 @@
     <None Include="Resources\ndmadapter.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\nfkdemo.mp4" />
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -159,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ndmadapter.ico" />
+    <None Include="Resources\nfkdemo.wmv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

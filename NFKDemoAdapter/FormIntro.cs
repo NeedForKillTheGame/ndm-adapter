@@ -14,8 +14,8 @@ namespace NFKDemoAdapter
 {
     public partial class FormIntro : FormAutoClose
     {
-        int w = 1270;
-        int h = 720;
+        int w = NFKHelper.GAME_WIDTH;
+        int h = NFKHelper.GAME_HEIGHT;
 
         public FormIntro()
         {
@@ -24,7 +24,7 @@ namespace NFKDemoAdapter
 //#endif
             this.Location = new Point(0, 0);
             this.StartPosition = FormStartPosition.Manual;
-            this.ForeColor = Color.Black;
+            this.BackColor = Color.Black;
             this.ShowInTaskbar = false;
 
 
@@ -55,16 +55,13 @@ namespace NFKDemoAdapter
         private void FormVideo_Load(object sender, EventArgs e)
         {
             Cursor.Hide();
-            this.Width = w;
-            this.Height = h;
-
             axWindowsMediaPlayer1.Dock = DockStyle.Fill;
             axWindowsMediaPlayer1.uiMode = "none";
-
-            axWindowsMediaPlayer1.URL = getVideoFile();
-            axWindowsMediaPlayer1.currentPlaylist = axWindowsMediaPlayer1.mediaCollection.getByName("nfkdemo");
             axWindowsMediaPlayer1.stretchToFit = true;
 
+
+            axWindowsMediaPlayer1.URL = getVideoFile();
+            axWindowsMediaPlayer1.Ctlcontrols.play();
         }
 
 
@@ -75,7 +72,7 @@ namespace NFKDemoAdapter
         /// <returns></returns>
         private string getVideoFile()
         {
-            var fileName = Path.Combine(Path.GetTempPath(), "nfkdemo.mp4");
+            var fileName = Path.Combine(Path.GetTempPath(), "nfkdemo.wmv");
             try
             {
                 if (!File.Exists(fileName))
@@ -93,7 +90,7 @@ namespace NFKDemoAdapter
 
 
 
-        #region fade out form effect
+#region fade out form effect
 
         Timer t1 = new Timer();
 
@@ -120,6 +117,6 @@ namespace NFKDemoAdapter
 
         }
 
-        #endregion
+#endregion
     }
 }
