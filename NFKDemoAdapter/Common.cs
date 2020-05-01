@@ -30,13 +30,11 @@ namespace NFKDemoAdapter
         }
         public static void ShowMessage(string caption, string message, MessageBoxIcon type = MessageBoxIcon.Information)
         {
-            MessageBox.Show(caption, message, MessageBoxButtons.OK, type);
+            MessageBox.Show(message, caption, MessageBoxButtons.OK, type);
         }
 
         public static string GetFilenameFromWebServer(string url)
         {
-            // set allowed protocol to download from
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
             string fileName = "";
 
@@ -69,7 +67,8 @@ namespace NFKDemoAdapter
                 {
                     var remoteVersion = wc.DownloadString("https://raw.githubusercontent.com/NeedForKillTheGame/ndm-adapter/master/version.txt");
                     remoteVersion = remoteVersion.Trim();
-                    if (ProgramVersion != remoteVersion)
+
+                    if (CompareVersions(ProgramVersion, remoteVersion) == -1)
                     {
                         var result = MessageBox.Show("A new version of the program is available (" + remoteVersion + ")!\nDo you want open the website for download?", "New version released!", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (result == DialogResult.Yes)
@@ -81,6 +80,42 @@ namespace NFKDemoAdapter
             }
             catch
             { }
+        }
+
+        /// <summary>
+        /// return -1 if v1 > v2 | 0 if v1 == v2 | 1 if v1 > v2
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
+        private static int CompareVersions(string v1, string v2)
+        {
+            int maj1, min1, maj2, min2;
+
+            var c1 = v1.Split('.');
+            var c2 = v2.Split('.');
+            if (c1.Length != 2 || c2.Length != 2)
+                return 0;
+
+            var smaj1 = c1[0].PadRight(3, '0');
+            var smin1 = c1[1].PadRight(3, '0');
+            var smaj2 = c2[0].PadRight(3, '0');
+            var smin2 = c2[1].PadRight(3, '0');
+            int.TryParse(smaj1, out maj1);
+            int.TryParse(smin1, out min1);
+            int.TryParse(smaj2, out maj2);
+            int.TryParse(smin2, out min2);
+            // compare major
+            if (maj1 > maj2)
+                return 1;
+            else if (maj1 < maj2)
+                return -1;
+            // compare minor
+            if (min1 > min2)
+                return 1;
+            else if (min1 < min2)
+                return -1;
+            return 0;
         }
 
         internal static void OpenURL(string url)

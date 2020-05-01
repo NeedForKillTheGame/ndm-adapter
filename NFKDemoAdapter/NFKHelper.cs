@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
 using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
@@ -139,11 +140,21 @@ namespace NFKDemoAdapter
         /// </summary>
         /// <param name="demoFile"></param>
         /// <returns></returns>
-        public static string GetGameStartArgs(string demoFile)
+        public static string GetDemoStartArgs(string demoFile)
         {
             //demoFile = Path.GetFileNameWithoutExtension(demoFile);
             var configFile = Path.GetFileNameWithoutExtension(GAME_CONFIG);
             return string.Format("+gowindow +dontsavecfg +exec {0} +demo \"{1}\"", configFile, demoFile);
+        }
+        public static string GetSpectatorStartArgs(string serverAddress)
+        {
+            //demoFile = Path.GetFileNameWithoutExtension(demoFile);
+            var configFile = Path.GetFileNameWithoutExtension(GAME_CONFIG);
+            return string.Format("+gowindow +dontsavecfg +exec {0} +connect {1}", configFile, serverAddress);
+        }
+        public static string GetGameStartArgs(string serverAddress)
+        {
+            return string.Format("+connect {0}", serverAddress);
         }
 
         /// <summary>
@@ -275,6 +286,42 @@ namespace NFKDemoAdapter
         }
 
 
+        static byte[] pingPacket = { 0x00, 0x01, 0x05, 0x01, 0x48 };
+
+
+        public static bool SendPing(string addressPort)
+        {
+            IPAddress ip = IPAddress.Any;
+            ushort port = 0;
+
+            var chunks = addressPort.Split(':');
+            if (chunks.Length == 2)
+            {
+                IPAddress.TryParse(chunks[0], out ip);
+                ushort.TryParse(chunks[1], out port);
+                return SendPing(ip, port);
+            }
+            return false;
+        }
+        public static bool SendPing(IPAddress ip, ushort port)
+        {
+            try
+            {
+                using (var client = new UdpClient(port))
+                {
+                    client.Client.SendTimeout = 500;
+                    client.Client.ReceiveTimeout = 500;
+                    var server = new IPEndPoint(ip, port);
+                    client.Send(pingPacket, pingPacket.Length, server);
+                    byte[] packet = client.Receive(ref server);
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
 
 
 

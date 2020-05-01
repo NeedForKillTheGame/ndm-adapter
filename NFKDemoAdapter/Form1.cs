@@ -70,7 +70,7 @@ namespace NFKDemoAdapter
             }
 
             userMode = false;
-            chkLinkHandler.Checked = wr.HasLinkHandler();
+            chkLinkHandler.Checked = wr.HasNfkLinkHandler() && wr.HasNfkdemoLinkHandler();
             chkFileHandler.Checked = wr.HasFileHandler();
             userMode = true;
         }

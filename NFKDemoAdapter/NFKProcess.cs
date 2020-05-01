@@ -70,9 +70,21 @@ namespace NFKDemoAdapter
             kbh.HookKeyboard();
         }
 
-        public void Run(string demoFile)
+        public void RunGame(string serverAddress)
         {
-            if (String.IsNullOrEmpty(NFKHelper.DemoFile))
+            var process = new Process();
+            process.StartInfo = new ProcessStartInfo()
+            {
+                FileName = NFKHelper.GameExePath,
+                Arguments = NFKHelper.GetGameStartArgs(serverAddress),
+                WorkingDirectory = NFKHelper.GetGameWorkingDir()
+            };
+            process.Start();
+        }
+
+        public void Run(string fileName, bool isDemo = true)
+        {
+            if (isDemo && String.IsNullOrEmpty(NFKHelper.DemoFile))
             {
                 return;
             }
@@ -81,9 +93,10 @@ namespace NFKDemoAdapter
             p.StartInfo = new ProcessStartInfo()
             {
                 FileName = NFKHelper.GameExePathTemp,
-                Arguments = NFKHelper.GetGameStartArgs(demoFile),
-                WorkingDirectory = NFKHelper.GetGameWorkingDir(),
-                CreateNoWindow = true
+                Arguments = isDemo
+                    ? NFKHelper.GetDemoStartArgs(fileName)
+                    : NFKHelper.GetSpectatorStartArgs(fileName),
+                WorkingDirectory = NFKHelper.GetGameWorkingDir()
             };
 
             p.Start();
@@ -109,7 +122,7 @@ namespace NFKDemoAdapter
         {
             var fullLoaded = false;
 
-            int delay = 10;
+            int delay = 50;
             var pm = new ProcessMemory();
             try
             {
@@ -118,6 +131,7 @@ namespace NFKDemoAdapter
             catch { }
 
             bool windowOpened = false;
+            bool inMenu = false, gameLoaded = false;
             // FIXME: this code inside while can throw exception if abort button was clicked in Form2 (cause process killed)
             while (p != null && !p.HasExited)
             {
@@ -148,7 +162,6 @@ namespace NFKDemoAdapter
                     */
                 }
 
-                bool inMenu = false, gameLoaded = false;
                 try
                 {
                     // read data from the game memory

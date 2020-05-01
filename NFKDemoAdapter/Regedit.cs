@@ -59,9 +59,16 @@ namespace NFKDemoAdapter
 
         }
 
-        public bool HasLinkHandler()
+        public bool HasNfkdemoLinkHandler()
         {
             using (var key = Registry.CurrentUser.OpenSubKey("Software\\Classes\\nfkdemo", RegistryKeyPermissionCheck.ReadSubTree))
+            {
+                return key != null;
+            }
+        }
+        public bool HasNfkLinkHandler()
+        {
+            using (var key = Registry.CurrentUser.OpenSubKey("Software\\Classes\\nfk", RegistryKeyPermissionCheck.ReadSubTree))
             {
                 return key != null;
             }
@@ -115,7 +122,7 @@ namespace NFKDemoAdapter
             }
             catch { }
             return handler == Handler.Link
-                ? HasLinkHandler()
+                ? HasNfkLinkHandler() && HasNfkdemoLinkHandler()
                 : HasFileHandler();
         }
 
@@ -125,14 +132,22 @@ namespace NFKDemoAdapter
             {
                 if (handler == Handler.Link)
                 {
-                    var p = Process.Start(new ProcessStartInfo()
+                    var p1 = Process.Start(new ProcessStartInfo()
                     {
                         FileName = "reg.exe",
                         Arguments = "DELETE HKEY_CURRENT_USER\\Software\\Classes\\nfkdemo /f",
                         UseShellExecute = false,
                         CreateNoWindow = true
                     });
-                    p.WaitForExit();
+                    var p2 = Process.Start(new ProcessStartInfo()
+                    {
+                        FileName = "reg.exe",
+                        Arguments = "DELETE HKEY_CURRENT_USER\\Software\\Classes\\nfk /f",
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    });
+                    p1.WaitForExit();
+                    p2.WaitForExit();
                 }
                 else
                 {
@@ -161,7 +176,7 @@ namespace NFKDemoAdapter
             }
             catch { }
             return !(handler == Handler.Link
-                ? HasLinkHandler()
+                ? HasNfkLinkHandler() && HasNfkdemoLinkHandler()
                 : HasFileHandler());
         }
 

@@ -6,7 +6,7 @@ zoomwindow
 speeddemo 25
 
 // start play music from a playlist basenfk/music/mp3list.dat
-mp3volume 20
+mp3volume 15
 mp3play
 
 // decrease game volume

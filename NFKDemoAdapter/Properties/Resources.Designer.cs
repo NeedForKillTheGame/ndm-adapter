@@ -64,7 +64,7 @@ namespace NFKDemoAdapter.Properties {
         ///   Looks up a localized string similar to Windows Registry Editor Version 5.00
         ///
         ///[HKEY_CURRENT_USER\Software\Classes\ndmadapter\shell\open\command]
-        ///@=&quot;{PROGRAM_EXE_PATH} \&quot;%1\&quot;&quot;
+        ///@=&quot;\&quot;{PROGRAM_EXE_PATH}\&quot; \&quot;%1\&quot;&quot;
         ///
         ///[HKEY_CURRENT_USER\Software\Classes\.ndm]
         ///@=&quot;ndmadapter&quot;.
@@ -111,7 +111,7 @@ namespace NFKDemoAdapter.Properties {
         ///speeddemo 25
         ///
         ///// start play music from a playlist basenfk/music/mp3list.dat
-        ///mp3volume 20
+        ///mp3volume 16
         ///mp3play
         ///
         ///// decrease game volume
@@ -126,16 +126,17 @@ namespace NFKDemoAdapter.Properties {
         ///showhp_x 30
         ///showhp_y 75
         ///
+        ///// follow best players
+        ///followpowerup
+        ///followkiller
+        ///
         ///drawtime 1
         ///allowmapschangebg 1
         ///barflash 1
         ///barposition 427
         ///showmapinfo 1
         ///shownickatsb 1
-        ///ch_showfollowinglabel 0
-        ///
-        ///// do not draw unused bars
-        ///cf_w [rest of string was truncated]&quot;;.
+        ///ch_s [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ndmadapter {
             get {

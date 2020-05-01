@@ -62,9 +62,9 @@
             this.chkLinkHandler.AutoSize = true;
             this.chkLinkHandler.Location = new System.Drawing.Point(12, 71);
             this.chkLinkHandler.Name = "chkLinkHandler";
-            this.chkLinkHandler.Size = new System.Drawing.Size(203, 21);
+            this.chkLinkHandler.Size = new System.Drawing.Size(266, 21);
             this.chkLinkHandler.TabIndex = 3;
-            this.chkLinkHandler.Text = "Handler for links nfkdemo://";
+            this.chkLinkHandler.Text = "Handler for links nfkdemo:// and nfk://";
             this.chkLinkHandler.UseVisualStyleBackColor = true;
             this.chkLinkHandler.CheckedChanged += new System.EventHandler(this.ChkLinkHandler_CheckedChanged);
             // 
