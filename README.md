@@ -15,7 +15,7 @@ Go to [Releases](https://github.com/NeedForKillTheGame/ndm-adapter/releases) to 
 * Play demo file in NFK by URL `nfkdemo://` with auto download it into `basenfk/demos/download`
 * Play local `*.ndm` files in NFK in a single click
 * Interrupt demo execution by press `ESC` (including inside the game)
-* Connect to a server by URL `nfk://server:port` as a spectator or without by `nfk://server:port/?play`
+* Connect to a server by URL `nfk://ip:port` as a spectator or without by `nfk://ip:port/?play`
 * Fullscreen/widescreen with keep aspect ratio in the game
 
 ![](https://i.imgur.com/k0wxHbr.png)

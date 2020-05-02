@@ -9,56 +9,12 @@ using System.Threading.Tasks;
 
 namespace NFKDemoAdapter
 {
-    /*
-    
-    Windows Registry Editor Version 5.00
-
-    ; Infamous capabilities:
-
-    [HKEY_LOCAL_MACHINE\SOFTWARE\MyApp\Capabilities]
-    "ApplicationDescription"="MyApp"
-    "ApplicationIcon"="C:\\MyApp\\MyApp.exe,0"
-    "ApplicationName"="MyApp"
-
-    [HKEY_LOCAL_MACHINE\SOFTWARE\MyApp\Capabilities\FileAssociations]
-    ".htm"="MyAppURL"
-    ".html"="MyAppURL"
-    ".shtml"="MyAppURL"
-    ".xht"="MyAppURL"
-    ".xhtml"="MyAppURL"
-
-    [HKEY_LOCAL_MACHINE\SOFTWARE\MyApp\Capabilities\URLAssociations]
-    "ftp"="MyAppURL"
-    "http"="MyAppURL"
-    "https"="MyAppURL"
-
-    ; Register to Default Programs
-
-    [HKEY_LOCAL_MACHINE\SOFTWARE\RegisteredApplications]
-    "MyApp"="Software\\MyApp\\Capabilities"
-
-    ; MyAppURL HANDLER:
-
-    [HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL]
-    @="MyApp Document"
-    "FriendlyTypeName"="MyApp Document"
-
-    [HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL\shell]
-
-    [HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL\shell\open]
-
-    [HKEY_LOCAL_MACHINE\Software\Classes\MyAppURL\shell\open\command]
-    @="\"C:\\MyApp\\MyApp.exe\" \"%1\""
-
-    */
-
+	
+	/// <summary>
+	/// https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767914(v=vs.85)?redirectedfrom=MSDN
+	/// </summary>
     public class Regedit
     {
-        public Regedit()
-        {
-
-        }
-
         public bool HasNfkdemoLinkHandler()
         {
             using (var key = Registry.CurrentUser.OpenSubKey("Software\\Classes\\nfkdemo", RegistryKeyPermissionCheck.ReadSubTree))
@@ -92,9 +48,6 @@ namespace NFKDemoAdapter
             return false;
         }
 
-        /// <summary>
-        /// https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa767914(v=vs.85)?redirectedfrom=MSDN
-        /// </summary>
         public bool RegisterHandler(Handler handler)
         {
             try

@@ -79,10 +79,10 @@ namespace NFKDemoAdapter
         /// Take only useful part and drop all text after a slash "/"
         /// </summary>
         /// <returns></returns>
-        private static string dropQueryUrl(string arg)
+        private static string dropQueryUrl(string str)
         {
             var sb = new StringBuilder();
-            foreach (var c in arg)
+            foreach (var c in str)
             {
                 if (c == '/')
                     break;
@@ -92,7 +92,6 @@ namespace NFKDemoAdapter
         }
         private static string getDemoPath(string arg)
         {
-
             string url = arg.Replace("nfkdemo://", "");
             long demoId;
 
@@ -101,7 +100,6 @@ namespace NFKDemoAdapter
             {
                 return url;
             }
-            url = dropQueryUrl(url);
             // native support for demos from web stats by id
             if (long.TryParse(url, out demoId))
             {
