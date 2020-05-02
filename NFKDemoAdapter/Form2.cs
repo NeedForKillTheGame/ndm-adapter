@@ -63,7 +63,7 @@ namespace NFKDemoAdapter
             }
             catch (Exception ex)
             {
-                Common.ShowError("Error", ex.Message);
+                Common.ShowError("Error", ex.Message + "\n" + demoUrl);
                 userMode = false;
                 this.Close();
             }

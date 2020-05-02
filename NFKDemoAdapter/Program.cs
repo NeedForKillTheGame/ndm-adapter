@@ -101,7 +101,7 @@ namespace NFKDemoAdapter
                 return url;
             }
             // native support for demos from web stats by id
-            if (long.TryParse(url, out demoId))
+            if (long.TryParse(url.Replace("/", ""), out demoId))
             {
                 url = "https://stats.needforkill.ru/demo/" + demoId;
             }
