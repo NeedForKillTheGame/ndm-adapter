@@ -144,7 +144,7 @@ namespace NFKDemoAdapter
         {
             //demoFile = Path.GetFileNameWithoutExtension(demoFile);
             var configFile = Path.GetFileNameWithoutExtension(GAME_CONFIG);
-            return string.Format("+gowindow +dontsavecfg +exec {0} +demo \"{1}\"", configFile, demoFile);
+            return string.Format("+gowindow +dontsavecfg +nonet +exec {0} +demo \"{1}\"", configFile, demoFile);
         }
         public static string GetSpectatorStartArgs(string serverAddress)
         {
@@ -262,10 +262,26 @@ namespace NFKDemoAdapter
         /// <returns></returns>
         private static void calcResizedWindow(int width, int height, out int new_width, out int new_height)
         {
+            // for large dimensions start divide from 4
+            // for smaller - only twice
+            int divider = width > 2000 ? 4 : 2;
+            new_width = width;
+            // divide width until we get accurate division with result >= 1000 and <= 1720
+            while (divider >= 2)
+            {
+                if (width % divider == 0)
+                {
+                    new_width = width / divider;
+                    if (new_width != width && new_width >= 1000 && new_width <= 1720)
+                        break;
+                }
+                divider--;
+            }
+
             var screen_ratio = decimal.Divide(width, height);
-            new_width = width > height
-                ? (width > GAME_WIDTH ? GAME_WIDTH : width)
-                : (height > GAME_HEIGHT ? GAME_HEIGHT : height);
+            //new_width = width > height
+            //    ? (width > GAME_WIDTH ? GAME_WIDTH : width)
+            //    : (height > GAME_HEIGHT ? GAME_HEIGHT : height);
             new_height = width > height
                 ? (int)Math.Ceiling(new_width / screen_ratio)
                 : (int)Math.Ceiling(new_width * screen_ratio);
