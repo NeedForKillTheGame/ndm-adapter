@@ -16,6 +16,7 @@ namespace NFKDemoAdapter
     {
         int w = NFKHelper.GAME_WIDTH;
         int h = NFKHelper.GAME_HEIGHT;
+        const int WINDOW_HEADER_HEIGHT = 30;
 
         public FormIntro()
         {
@@ -48,8 +49,10 @@ namespace NFKDemoAdapter
                     this.WindowState = FormWindowState.Maximized;
                 }
             }
-
             InitializeComponent();
+
+            this.Width = w;
+            this.Height = h + WINDOW_HEADER_HEIGHT;
         }
 
         private void FormVideo_Load(object sender, EventArgs e)
