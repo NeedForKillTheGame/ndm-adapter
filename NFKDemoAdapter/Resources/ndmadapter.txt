@@ -3,14 +3,14 @@ r_mode 1280 720
 zoomwindow
 
 // game speed (0-40), default 20
-speeddemo 25
+speeddemo 21
 
 // start play music from a playlist basenfk/music/mp3list.dat
-mp3volume 15
+mp3volume 8
 mp3play
 
 // decrease game volume
-volume 15
+volume 10
 
 // show nicknames
 autoshownick 0
@@ -50,5 +50,24 @@ r_massacre 1
 // binds
 bind n nextplayer
 bind tab scoreboard
+
 // hook for esc in ndmadapter
 bind esc quit
+
+bind 1 followid 0
+bind 2 followid 1
+bind 3 followid 2
+bind 4 followid 3
+bind 5 followid 4
+bind 6 followid 5
+bind 7 followid 6
+bind 8 followid 7
+
+bind num1 bg 1
+bind num2 bg 2
+bind num3 bg 3
+bind num4 bg 4
+bind num5 bg 5
+bind num6 bg 6
+bind num7 bg 7
+bind num8 bg 8

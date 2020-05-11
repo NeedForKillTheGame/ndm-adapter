@@ -94,6 +94,13 @@ namespace NFKDemoAdapter.Properties {
         ///[HKEY_CURRENT_USER\Software\Classes\nfkdemo\shell\open\command]
         ///@=&quot;\&quot;{PROGRAM_EXE_PATH}\&quot; \&quot;%1\&quot;&quot;
         ///
+        ///
+        ///[HKEY_CURRENT_USER\Software\Classes\nfk]
+        ///&quot;URL Protocol&quot;=&quot;&quot;
+        ///
+        ///[HKEY_CURRENT_USER\Software\Classes\nfk\shell\open\command]
+        ///@=&quot;\&quot;{PROGRAM_EXE_PATH}\&quot; \&quot;%1\&quot;&quot;
+        ///
         ///.
         /// </summary>
         internal static string link_reg {
@@ -108,14 +115,14 @@ namespace NFKDemoAdapter.Properties {
         ///zoomwindow
         ///
         ///// game speed (0-40), default 20
-        ///speeddemo 25
+        ///speeddemo 21
         ///
         ///// start play music from a playlist basenfk/music/mp3list.dat
-        ///mp3volume 16
+        ///mp3volume 8
         ///mp3play
         ///
         ///// decrease game volume
-        ///volume 15
+        ///volume 10
         ///
         ///// show nicknames
         ///autoshownick 0
@@ -136,7 +143,7 @@ namespace NFKDemoAdapter.Properties {
         ///barposition 427
         ///showmapinfo 1
         ///shownickatsb 1
-        ///ch_s [rest of string was truncated]&quot;;.
+        ///ch_sh [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ndmadapter {
             get {

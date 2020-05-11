@@ -116,9 +116,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\NFK.exe" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ndmadapter.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ndmadapter.ico" />
+    <None Include="Resources\NFK.exe" />
     <None Include="Resources\nfkdemo.wmv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
