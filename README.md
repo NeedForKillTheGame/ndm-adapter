@@ -19,3 +19,12 @@ Go to [Releases](https://github.com/NeedForKillTheGame/ndm-adapter/releases) to 
 * Fullscreen/widescreen with keep aspect ratio in the game
 
 ![](https://i.imgur.com/k0wxHbr.png)
+
+## Hotkeys
+* `n` - follow next player
+* `1-8` - follow player with specified ID
+* `num1-8` - change background
+* `num+` `num-` increase/decrease demo speed
+* `Pause Break` - pause demo
+* `Tab` - show scoreboard
+* `Escape` - interrupt game in any state (from download to end of demo )
